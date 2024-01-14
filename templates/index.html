@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sensor Data</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function updateData() {
+            $.ajax({
+                url: '/get_data',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    document.getElementById('temperature').textContent = 'Temperature: ' + data.temp + ' °C';
+                    document.getElementById('humidity').textContent = 'Humidity: ' + data.humidity + '%';
+                    document.getElementById('soil_moisture').textContent = 'Soil Moisture: ' + data.soil_moisture + '%';
+                }
+            });
+        }
+
+        $(document).ready(function () {
+            updateData();
+            setInterval(updateData, 0); // Update data every 5 seconds
+        });
+    </script>
+</head>
+<body>
+    <h1>Sensor Data</h1>
+    <p id="temperature">Temperature: Loading...</p>
+    <p id="humidity">Humidity: Loading...</p>
+    <p id="soil_moisture">Soil Moisture: Loading...</p>
+
+</body>
+</html>
