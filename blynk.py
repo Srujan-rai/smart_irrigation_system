@@ -9,7 +9,7 @@ import serial
 import requests
 
 # Your Blynk Auth Token
-auth_token = "otE_0FGRYDyOoTOtReVRGlx3FSa2BFtA"
+auth_token = "your auth code"
 
 ser = serial.Serial('COM3', 9600)
 
